@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: microservices-ingress
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /a
+            pathType: Prefix
+            backend:
+              service:
+                name: service-a
+                port:
+                  number: 80
+          - path: /b
+            pathType: Prefix
+            backend:
+              service:
+                name: service-b
+                port:
+                  number: 81
