@@ -2,22 +2,17 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_A = 'your-dockerhub-username/service-a:latest'
-        IMAGE_B = 'your-dockerhub-username/service-b:latest'
+        IMAGE_A = 'adnanizco/service-a:latest'
+        IMAGE_B = 'adnanizco/service-b:latest'
         REGISTRY_CREDENTIALS = 'dockerhub-credentials'
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'main', url: 'https://github.com/your-username/my-microservices-project.git'
-            }
-        }
-
+        // You can optionally skip this stage since Jenkins already clones the repo via SCM
         stage('Build Docker Images') {
             steps {
-                sh 'docker build -t $IMAGE_A ./src/service-a'
-                sh 'docker build -t $IMAGE_B ./src/service-b'
+                sh 'docker build -t $IMAGE_A ./my-microservices-project/src/service-a'
+                sh 'docker build -t $IMAGE_B ./my-microservices-project/src/service-b'
             }
         }
 
@@ -35,7 +30,7 @@ pipeline {
 
         stage('Deploy to Kubernetes') {
             steps {
-                sh 'kubectl apply -f k8s/'
+                sh 'kubectl apply -f my-microservices-project/k8s/'
             }
         }
     }
