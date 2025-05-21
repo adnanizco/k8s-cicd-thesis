@@ -1,0 +1,15 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.so
+
+# Docker
+**/Dockerfile
+docker-compose.override.yml
+.env
+
+# Kubernetes configs generated
+*.yaml.backup
+
+# Jenkins
+workspace/
