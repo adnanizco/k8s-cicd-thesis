@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment {
-        IMAGE_A = "your-dockerhub-username/service-a:${BUILD_NUMBER}"
-        IMAGE_B = "your-dockerhub-username/service-b:${BUILD_NUMBER}"
+        IMAGE_A = "adnanizco/service-a:${BUILD_NUMBER}"
+        IMAGE_B = "adnanizco/service-b:${BUILD_NUMBER}"
         REGISTRY_CREDENTIALS  = 'dockerhub-credentials'
         KUBECONFIG_CREDENTIAL = 'kubeconfig'
     }
