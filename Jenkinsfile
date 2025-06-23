@@ -12,8 +12,8 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'docker build -t $IMAGE_A k8s-cicd-thesis-main/src/service-a'
-                sh 'docker build -t $IMAGE_B k8s-cicd-thesis-main/src/service-b'
+                sh 'docker build -t $IMAGE_A k8s-cicd-thesis/src/service-a'
+                sh 'docker build -t $IMAGE_B k8s-cicd-thesis/src/service-b'
             }
         }
         stage('Push') {
